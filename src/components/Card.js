@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import Person from './Person'
+
 
 class Card extends Component {
   render(){
@@ -10,7 +10,10 @@ class Card extends Component {
         Team: {this.props.card.team}<br/>
         Position: {this.props.card.position}<br/>
         Batting Avg: {this.props.card.batting_avg}<br/>
-        Owner: {this.props.card.owner.name}
+        Owner: {this.props.card.owner.name}<br/>
+        <button onClick={() => {
+          {this.props.handleDelete(this.props.card.id, this.props.arrayIndex, this.props.currentArray)}}}>Delete
+        </button><br/>
       </div>
     )
   }

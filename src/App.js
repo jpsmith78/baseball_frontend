@@ -116,6 +116,18 @@ class App extends Component {
       })
   }
 
+  handleDelete = (elementId, arrayIndex, currentArray) => {
+    fetch('http://localhost:3000/card/' + elementId, {
+      method: 'DELETE'
+    })
+      .then((data) => {
+        this.removeFromArray(currentArray, arrayIndex)
+      })
+        .catch((err) => {
+          console.log(err);
+        })
+  }
+
   handleView = (view) => {
     this.setState({
       currentView: view
@@ -125,6 +137,15 @@ class App extends Component {
   updateArray = (person, array) => {
     this.setState((prevState) => {
       prevState[array].push(person)
+      return {
+        [array]: prevState[array]
+      }
+    })
+  }
+
+  removeFromArray = (array, arrayIndex) => {
+    this.setState((prevState) => {
+      prevState[array].splice(arrayIndex, 1)
       return {
         [array]: prevState[array]
       }
@@ -145,6 +166,7 @@ class App extends Component {
           currentView={this.state.currentView}
           persons={this.state.persons}
           cards={this.state.cards}
+          handleDelete={this.handleDelete}
         />
         {this.state.currentView === 'people' ?
         <Form

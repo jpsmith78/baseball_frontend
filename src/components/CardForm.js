@@ -26,6 +26,30 @@ class CardForm extends Component {
     })
   }
 
+  handleImageChange = (event) => {
+    this.setState({
+      image: event.target.value
+    })
+  }
+
+  handlePositionChange = (event) => {
+    this.setState({
+      position: event.target.value
+    })
+  }
+
+  handleBattingAvgChange = (event) => {
+    this.setState({
+      batting_avg: event.target.value
+    })
+  }
+
+  handleOwnerChange = (event) => {
+    this.setState({
+      owner: event.target.value
+    })
+  }
+
   handleCardSubmit = (event) => {
     event.preventDefault()
     this.props.handleCreateCard(this.state)
@@ -58,6 +82,30 @@ class CardForm extends Component {
             placeholder="Team"
             onChange={this.handleTeamChange}
             value={this.state.team}
+          />
+          <input
+            type="text"
+            placeholder="Image"
+            onChange={this.handleImageChange}
+            value={this.state.image}
+          />
+          <input
+            type="text"
+            placeholder="Position"
+            onChange={this.handlePositionChange}
+            value={this.state.position}
+          />
+          <input
+            type="text"
+            placeholder="Batting Average"
+            onChange={this.handleBattingAvgChange}
+            value={this.state.batting_avg}
+          />
+          <input
+            type="number"
+            placeholder="Owner ID"
+            onChange={this.handleOwnerChange}
+            value={this.state.owner}
           />
           <input type="submit"/>
         </form>
