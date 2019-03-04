@@ -6,19 +6,30 @@ class Person extends Component {
   render(){
     return(
       <div className="person-container">
+        <ul>
+          <li>User: {this.props.person.name}</li>
+          <li>Age: {this.props.person.age}</li>
+          <li>Interest: {this.props.person.interest}</li>
+          <li>Collection:
 
-          User: {this.props.person.name}<br/>
-          Age: {this.props.person.age}<br/>
-          Interest: {this.props.person.interest}<br/>
-          {/*}// Collection: {this.props.person.collection.map((card, index) => {
-          //   return(
-          //     <div>
-          //       <Card />
-          //     </div>
-          //   )
-          // })}*/}
-        
-        <br/>
+                {this.props.person.collection.map((i)=>{
+                  return(
+                    <ul>
+                      <li>{i.player}</li>
+                      <li>{i.team}</li>
+                      <li><img src={i.image} alt={i.player} /></li>
+                      <li>{i.position}</li>
+                      <li>{i.batting_avg}</li>
+                      <br />
+                    </ul>
+
+                  )
+                })}
+
+
+
+          </li>
+        </ul>
       </div>
     )
   }
