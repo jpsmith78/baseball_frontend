@@ -17,7 +17,7 @@ class App extends Component {
 
   //fetching person data
   fetchPersons = () => {
-    fetch('http://localhost:3000/person')
+    fetch('https://baseballbackend.herokuapp.com/person')
       .then((data) => {
         return data.json()
       })
@@ -45,7 +45,7 @@ class App extends Component {
   }
 
   handleCreatePerson = (person) => {
-    fetch('http://localhost:3000/person', {
+    fetch('https://baseballbackend.herokuapp.com/person', {
       body: JSON.stringify(person),
       method: 'POST',
       headers: {
@@ -67,7 +67,7 @@ class App extends Component {
 
 //fetching card data
   fetchCards = () => {
-    fetch('http://localhost:3000/card')
+    fetch('https://baseballbackend.herokuapp.com/card')
       .then((data) => {
         return data.json()
       })
