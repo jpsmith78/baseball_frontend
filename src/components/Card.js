@@ -4,7 +4,7 @@ import Person from './Person'
 class Card extends Component {
   render(){
     return(
-      <div>
+      <div className="card-container">
         <img src={this.props.card.image}/><br/>
         Player: {this.props.card.player}<br/>
         Team: {this.props.card.team}<br/>
