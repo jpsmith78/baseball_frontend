@@ -6,8 +6,8 @@ class Header extends Component {
       <div>
         <h1>Baseball Card Collecting and Trading Forum!</h1>
         <nav>
-          <span>Users</span>
-          <span>Cards</span>
+          <span onClick={() => {this.props.handleView('people')}}>Users</span>
+          <span onClick={() => {this.props.handleView('cards')}}>Cards</span>
         </nav>
       </div>
     )

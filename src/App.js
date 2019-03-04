@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      currentView: 'card',
+      currentView: 'people',
       persons: [],
       cards: []
     }
@@ -17,7 +17,7 @@ class App extends Component {
 
   //fetching person data
   fetchPersons = () => {
-    fetch('http://localhost:3000/person')
+    fetch('https://baseballbackend.herokuapp.com/person')
       .then((data) => {
         return data.json()
       })
@@ -45,7 +45,7 @@ class App extends Component {
   }
 
   handleCreatePerson = (person) => {
-    fetch('http://localhost:3000/person', {
+    fetch('https://baseballbackend.herokuapp.com/person', {
       body: JSON.stringify(person),
       method: 'POST',
       headers: {
@@ -67,7 +67,7 @@ class App extends Component {
 
 //fetching card data
   fetchCards = () => {
-    fetch('http://localhost:3000/card')
+    fetch('https://baseballbackend.herokuapp.com/card')
       .then((data) => {
         return data.json()
       })
@@ -118,7 +118,7 @@ class App extends Component {
   render() {
     return (
       <div className="main-page">
-        <Header />
+        <Header handleView={this.handleView}/>
         <DisplayList
           currentView={this.state.currentView}
           persons={this.state.persons}
