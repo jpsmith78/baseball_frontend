@@ -4,6 +4,7 @@ import Form from './components/Form'
 import DisplayList from './components/DisplayList'
 import Person from './components/Person'
 import Card from './components/Card'
+import CardForm from './components/CardForm'
 
 class App extends Component {
   constructor(props){
@@ -94,6 +95,27 @@ class App extends Component {
     })
   }
 
+  handleCreateCard = (card) => {
+    fetch('http://localhost:3000/card', {
+      body: JSON.stringify(card),
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((createdCard) => {
+        return createdCard.json()
+      })
+      .then((jData) => {
+        this.updateArray(jData, 'cards')
+        this.handleView('cards')
+      })
+      .catch((err) => {
+          console.log(err);
+      })
+  }
+
   handleView = (view) => {
     this.setState({
       currentView: view
@@ -124,7 +146,12 @@ class App extends Component {
           persons={this.state.persons}
           cards={this.state.cards}
         />
-        <Form handleCreatePerson={this.handleCreatePerson}/>
+        <Form
+          handleCreatePerson={this.handleCreatePerson}
+        />
+        <CardForm
+          handleCreateCard={this.handleCreateCard}
+        />
       </div>
     );
   }

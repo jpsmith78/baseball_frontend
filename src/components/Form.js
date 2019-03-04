@@ -41,30 +41,31 @@ class Form extends Component {
       interest: ''
     })
   }
+
   render(){
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="New User"
-            onChange={this.handleNewNameChange}
-            value={this.state.name}
-          />
-          <input
-            type="text"
-            placeholder="Age"
-            onChange={this.handleAgeChange}
-            value={this.state.age}
-          />
-          <input
-            type="text"
-            placeholder="Trader/Collector/Investor"
-            onChange={this.handleInterestChange}
-            value={this.state.interest}
-          />
-          <input type="submit"/>
-        </form>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              placeholder="New User"
+              onChange={this.handleNewNameChange}
+              value={this.state.name}
+            />
+            <input
+              type="text"
+              placeholder="Age"
+              onChange={this.handleAgeChange}
+              value={this.state.age}
+            />
+            <input
+              type="text"
+              placeholder="Trader/Collector/Investor"
+              onChange={this.handleInterestChange}
+              value={this.state.interest}
+            />
+            <input type="submit"/>
+          </form>
       </div>
     )
   }
