@@ -33,7 +33,7 @@ class Form extends Component {
     this.props.handleCreatePerson(this.state)
     this.clearForm()
   }
-  
+
   clearForm = () => {
     this.setState({
       name: '',

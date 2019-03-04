@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Card from './Card'
+// import Card from './Card'
 
 
 class Person extends Component {
@@ -11,23 +11,18 @@ class Person extends Component {
           <li>Age: {this.props.person.age}</li>
           <li>Interest: {this.props.person.interest}</li>
           <li>Collection:
-
-                {this.props.person.collection.map((i)=>{
+                {this.props.person.collection.map((player, index)=>{
                   return(
-                    <ul>
-                      <li>{i.player}</li>
-                      <li>{i.team}</li>
-                      <li><img src={i.image} alt={i.player} /></li>
-                      <li>{i.position}</li>
-                      <li>{i.batting_avg}</li>
+                    <ul key={index}>
+                      <li >{player.player}</li>
+                      <li >{player.team}</li>
+                      <li ><img src={player.image} alt="player" /></li>
+                      <li >{player.position}</li>
+                      <li > {player.batting_avg}</li>
                       <br />
                     </ul>
-
                   )
                 })}
-
-
-
           </li>
         </ul>
       </div>
