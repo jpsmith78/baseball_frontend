@@ -4,6 +4,7 @@ import Form from './components/Form'
 import DisplayList from './components/DisplayList'
 import Person from './components/Person'
 import Card from './components/Card'
+import CardForm from './components/CardForm'
 
 class App extends Component {
   constructor(props){
@@ -147,8 +148,9 @@ class App extends Component {
         />
         <Form
           handleCreatePerson={this.handleCreatePerson}
+        />
+        <CardForm
           handleCreateCard={this.handleCreateCard}
-          currentView={this.state.currentView}
         />
       </div>
     );

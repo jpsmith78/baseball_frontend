@@ -14,6 +14,18 @@ class CardForm extends Component {
     }
   }
 
+  handlePlayerChange = (event) => {
+    this.setState({
+      player: event.target.value
+    })
+  }
+
+  handleTeamChange = (event) => {
+    this.setState({
+      team: event.target.value
+    })
+  }
+
   handleCardSubmit = (event) => {
     event.preventDefault()
     this.props.handleCreateCard(this.state)
@@ -33,7 +45,23 @@ class CardForm extends Component {
 
   render(){
     return(
-
+      <div>
+        <form onSubmit={this.handleCardSubmit}>
+          <input
+            type="text"
+            placeholder="Player"
+            onChange={this.handlePlayerChange}
+            value={this.state.player}
+          />
+          <input
+            type="text"
+            placeholder="Team"
+            onChange={this.handleTeamChange}
+            value={this.state.team}
+          />
+          <input type="submit"/>
+        </form>
+      </div>
 
     )
   }
