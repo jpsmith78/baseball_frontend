@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Header from './components/Header'
 import Form from './components/Form'
+import DisplayList from './components/DisplayList'
+import Person from './components/Person'
+import Card from './components/Card'
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      currentView: 'people', //other page is cards
+      currentView: 'card',
       persons: [],
       cards: []
     }
@@ -20,10 +23,25 @@ class App extends Component {
       })
       .then((jData) => {
         console.log(jData);
+        this.sortPersonData(jData)
       })
       .catch((err) => {
         console.log(err);
       })
+  }
+
+  sortPersonData = (persons) => {
+    let personData = []
+    persons.forEach((person) => {
+      personData.push(person)
+    })
+    this.setPersons(personData)
+  }
+
+  setPersons = (person) => {
+    this.setState({
+      persons: person
+    })
   }
 
   handleCreatePerson = (person) => {
@@ -55,19 +73,22 @@ class App extends Component {
       })
       .then((jData) => {
         console.log(jData);
+        this.sortCardsData(jData)
       })
       .catch((err) => {
         console.log(err);
       })
   }
 
-  setPersonData = (person) => {
-    this.setState({
-      persons: person
+  sortCardsData = (cards) => {
+    let cardData = []
+    cards.forEach((card) => {
+      cardData.push(card)
     })
+    this.setCards(cardData)
   }
 
-  setCardData = (card) => {
+  setCards = (card) => {
     this.setState({
       cards: card
     })
@@ -98,6 +119,11 @@ class App extends Component {
     return (
       <div className="main-page">
         <Header />
+        <DisplayList
+          currentView={this.state.currentView}
+          persons={this.state.persons}
+          cards={this.state.cards}
+        />
         <Form handleCreatePerson={this.handleCreatePerson}/>
       </div>
     );
