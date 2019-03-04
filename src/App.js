@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-
+import Header from './components/Header'
+import Form from './components/Form'
+import DisplayList from './components/DisplayList'
+import Person from './components/Person'
+import Card from './components/Card'
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      currentView: 'persons', //other page is cards
+      currentView: 'card',
       persons: [],
       cards: []
     }
   }
 
-  //fetching API data
+  //fetching person data
   fetchPersons = () => {
     fetch('http://localhost:3000/person')
       .then((data) => {
@@ -19,21 +23,108 @@ class App extends Component {
       })
       .then((jData) => {
         console.log(jData);
+        this.sortPersonData(jData)
       })
       .catch((err) => {
         console.log(err);
       })
   }
 
+  sortPersonData = (persons) => {
+    let personData = []
+    persons.forEach((person) => {
+      personData.push(person)
+    })
+    this.setPersons(personData)
+  }
+
+  setPersons = (person) => {
+    this.setState({
+      persons: person
+    })
+  }
+
+  handleCreatePerson = (person) => {
+    fetch('http://localhost:3000/person', {
+      body: JSON.stringify(person),
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((createdPerson) => {
+        return createdPerson.json()
+      })
+      .then((jData) => {
+        this.updateArray(jData, 'persons')
+        this.handleView('people')
+      })
+      .catch((err) => {
+          console.log(err);
+      })
+  }
+
+//fetching card data
+  fetchCards = () => {
+    fetch('http://localhost:3000/card')
+      .then((data) => {
+        return data.json()
+      })
+      .then((jData) => {
+        console.log(jData);
+        this.sortCardsData(jData)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  sortCardsData = (cards) => {
+    let cardData = []
+    cards.forEach((card) => {
+      cardData.push(card)
+    })
+    this.setCards(cardData)
+  }
+
+  setCards = (card) => {
+    this.setState({
+      cards: card
+    })
+  }
+
+  handleView = (view) => {
+    this.setState({
+      currentView: view
+    })
+  }
+
+  updateArray = (person, array) => {
+    this.setState((prevState) => {
+      prevState[array].push(person)
+      return {
+        [array]: prevState[array]
+      }
+    })
+  }
+
   componentDidMount() {
     this.fetchPersons()
+    this.fetchCards()
   }
 
 
   render() {
     return (
       <div className="main-page">
-
+        <Header />
+        <DisplayList
+          currentView={this.state.currentView}
+          persons={this.state.persons}
+          cards={this.state.cards}
+        />
+        <Form handleCreatePerson={this.handleCreatePerson}/>
       </div>
     );
   }
