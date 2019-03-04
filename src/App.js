@@ -94,6 +94,27 @@ class App extends Component {
     })
   }
 
+  handleCreateCard = (card) => {
+    fetch('http://localhost:3000/card', {
+      body: JSON.stringify(card),
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((createdCard) => {
+        return createdCard.json()
+      })
+      .then((jData) => {
+        this.updateArray(jData, 'cards')
+        this.handleView('cards')
+      })
+      .catch((err) => {
+          console.log(err);
+      })
+  }
+
   handleView = (view) => {
     this.setState({
       currentView: view
@@ -124,7 +145,11 @@ class App extends Component {
           persons={this.state.persons}
           cards={this.state.cards}
         />
-        <Form handleCreatePerson={this.handleCreatePerson}/>
+        <Form
+          handleCreatePerson={this.handleCreatePerson}
+          handleCreateCard={this.handleCreateCard}
+          currentView={this.state.currentView}
+        />
       </div>
     );
   }
