@@ -146,12 +146,14 @@ class App extends Component {
           persons={this.state.persons}
           cards={this.state.cards}
         />
+        {this.state.currentView === 'people' ?
         <Form
           handleCreatePerson={this.handleCreatePerson}
-        />
+        /> :
         <CardForm
           handleCreateCard={this.handleCreateCard}
         />
+        }
       </div>
     );
   }
