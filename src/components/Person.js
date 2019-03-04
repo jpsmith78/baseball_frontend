@@ -5,8 +5,8 @@ import Card from './Card'
 class Person extends Component {
   render(){
     return(
-      <div>
-        <div>
+      <div className="person-container">
+
           User: {this.props.person.name}<br/>
           Age: {this.props.person.age}<br/>
           Interest: {this.props.person.interest}<br/>
@@ -17,7 +17,7 @@ class Person extends Component {
           //     </div>
           //   )
           // })}*/}
-        </div>
+        
         <br/>
       </div>
     )
