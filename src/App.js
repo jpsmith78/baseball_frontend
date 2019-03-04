@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      currentView: 'card',
+      currentView: 'people',
       persons: [],
       cards: []
     }
@@ -118,7 +118,7 @@ class App extends Component {
   render() {
     return (
       <div className="main-page">
-        <Header />
+        <Header handleView={this.handleView}/>
         <DisplayList
           currentView={this.state.currentView}
           persons={this.state.persons}
