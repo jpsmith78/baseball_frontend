@@ -16,7 +16,7 @@ span:hover {
   color: blue;
 }
 
-.display-container {
+/* .display-container {
   display: flex;
   width: 100%
 }
@@ -25,9 +25,5 @@ span:hover {
   text-align: center;
   margin: 0 auto;
   width: 100%;
-}
-
-.card-container {
-  text-align: center;
-  margin: 0 auto;
-}
+  height: 100px;
+} */
