@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Header from './components/Header'
 import Form from './components/Form'
 import DisplayList from './components/DisplayList'
-import Person from './components/Person'
-import Card from './components/Card'
 import CardForm from './components/CardForm'
 
 class App extends Component {
@@ -96,7 +94,7 @@ class App extends Component {
   }
 
   handleCreateCard = (card) => {
-    fetch('http://localhost:3000/card', {
+    fetch('https://baseballbackend.herokuapp.com/card', {
       body: JSON.stringify(card),
       method: 'POST',
       headers: {
@@ -116,8 +114,29 @@ class App extends Component {
       })
   }
 
+  handlePersonUpdate = (person, arrayIndex, currentArray) => {
+    console.log(arrayIndex);
+
+    fetch('https://baseballbackend.herokuapp.com/person/' + person.id, {
+      body: JSON.stringify(person),
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((updatedPerson) => {
+        return updatedPerson.json()
+      })
+      .then((jData) => {
+        console.log(jData);
+
+      })
+      this.fetchCards()
+  }
+
   handleDelete = (elementId, arrayIndex, currentArray) => {
-    fetch('http://localhost:3000/card/' + elementId, {
+    fetch('https://baseballbackend.herokuapp.com/person/' + elementId, {
       method: 'DELETE'
     })
       .then((data) => {
@@ -167,6 +186,7 @@ class App extends Component {
           persons={this.state.persons}
           cards={this.state.cards}
           handleDelete={this.handleDelete}
+          handleUpdate={this.handlePersonUpdate}
         />
         {this.state.currentView === 'people' ?
         <Form

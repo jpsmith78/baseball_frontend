@@ -61,7 +61,7 @@ class CardForm extends Component {
       player: '',
       team: '',
       image: '',
-      postion: '',
+      position: '',
       batting_avg: '',
       owner: ''
     })

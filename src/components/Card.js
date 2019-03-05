@@ -12,8 +12,11 @@ class Card extends Component {
         Batting Avg: {this.props.card.batting_avg}<br/>
         Owner: {this.props.card.owner.name}<br/>
         <button onClick={() => {
-          {this.props.handleDelete(this.props.card.id, this.props.arrayIndex, this.props.currentArray)}}}>Delete
-        </button><br/>
+          
+        }}>Update</button>
+        <button onClick={() => {
+          this.props.handleDelete(this.props.card.id, this.props.arrayIndex, this.props.currentArray)}}>Delete
+        </button><br/><br/>
       </div>
     )
   }

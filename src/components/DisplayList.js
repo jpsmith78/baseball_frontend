@@ -15,6 +15,7 @@ class DisplayList extends Component {
                   person={person}
                   arrayIndex={index}
                   handleDelete={this.props.handleDelete}
+                  handleUpdate={this.props.handleUpdate}
                   currentArray='persons'
                 />
               )
@@ -28,6 +29,7 @@ class DisplayList extends Component {
                   card={card}
                   arrayIndex={index}
                   handleDelete={this.props.handleDelete}
+                  handleUpdate={this.props.handleUpdate}
                   currentArray='cards'
                 />
               )

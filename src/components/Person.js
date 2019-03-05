@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import UpdatePersonForm from './UpdatePersonForm'
 
 
 
@@ -27,8 +28,16 @@ class Person extends Component {
                 }) : "" }
           </li>
           <button onClick={() => {
-            {this.props.handleDelete(this.props.person.id, this.props.arrayIndex, this.props.currentArray)}}}>Delete
-          </button><br/>
+            this.props.handleUpdate(this.props.person, this.props.arrayIndex, this.props.currentArray)
+          }}>Update</button>
+          <UpdatePersonForm
+            person={this.props.person}
+            arrayIndex={this.props.arrayIndex}
+            handleUpdate={this.props.handleUpdate}
+          />
+          <button onClick={() => {
+            this.props.handleDelete(this.props.person.id, this.props.arrayIndex, this.props.currentArray)
+          }}>Delete</button><br/>
         </ul>
       </div>
     )
