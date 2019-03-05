@@ -44,7 +44,7 @@ class Form extends Component {
 
   render(){
     return(
-      <div>
+      <div className="enter-person">
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
