@@ -16,7 +16,7 @@ class App extends Component {
 
   //fetching person data
   fetchPersons = () => {
-    fetch('https://baseballbackend.herokuapp.com/person')
+    fetch('https://bballbackend.herokuapp.com/person')
       .then((data) => {
         return data.json()
       })
@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   handleCreatePerson = (person) => {
-    fetch('https://baseballbackend.herokuapp.com/person', {
+    fetch('https://bballbackend.herokuapp.com/person', {
       body: JSON.stringify(person),
       method: 'POST',
       headers: {
@@ -66,7 +66,7 @@ class App extends Component {
 
 //fetching card data
   fetchCards = () => {
-    fetch('https://baseballbackend.herokuapp.com/card')
+    fetch('https://bballbackend.herokuapp.com/card')
       .then((data) => {
         return data.json()
       })
@@ -94,7 +94,7 @@ class App extends Component {
   }
 
   handleCreateCard = (card) => {
-    fetch('https://baseballbackend.herokuapp.com/card', {
+    fetch('https://bballbackend.herokuapp.com/card', {
       body: JSON.stringify(card),
       method: 'POST',
       headers: {
@@ -117,7 +117,7 @@ class App extends Component {
   handlePersonUpdate = (person, arrayIndex, currentArray) => {
     console.log(arrayIndex);
 
-    fetch('https://baseballbackend.herokuapp.com/person/' + person.id, {
+    fetch('https://bballbackend.herokuapp.com/person/' + person.id, {
       body: JSON.stringify(person),
       method: 'PUT',
       headers: {
@@ -137,7 +137,7 @@ class App extends Component {
 
   handleCardUpdate = (card, arrayIndex, currentArray) => {
     console.log(arrayIndex);
-    fetch('https://baseballbackend.herokuapp.com/card/' + card.id, {
+    fetch('https://bballbackend.herokuapp.com/card/' + card.id, {
       body: JSON.stringify(card),
       method: 'PUT',
       headers: {
@@ -154,7 +154,7 @@ class App extends Component {
   }
 
   handleDelete = (elementId, arrayIndex, currentArray) => {
-    fetch('https://baseballbackend.herokuapp.com/person/' + elementId, {
+    fetch('https://bballbackend.herokuapp.com/person/' + elementId, {
       method: 'DELETE'
     })
       .then((data) => {
@@ -166,7 +166,7 @@ class App extends Component {
   }
 
   handleCardDelete = (elementId, arrayIndex, currentArray) => {
-    fetch('https://baseballbackend.herokuapp.com/card/' + elementId, {
+    fetch('https://bballbackend.herokuapp.com/card/' + elementId, {
       method: 'DELETE'
     })
       .then((data) => {

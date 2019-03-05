@@ -69,7 +69,7 @@ class CardForm extends Component {
 
   render(){
     return(
-      <div>
+      <div className="enter-card">
         <form onSubmit={this.handleCardSubmit}>
           <input
             type="text"

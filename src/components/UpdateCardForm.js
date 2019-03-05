@@ -55,7 +55,7 @@ class UpdateCardForm extends Component {
 
   render(){
     return (
-      <div>
+      <div className="update-card">
         <form onSubmit={this.handleUpdateCardSubmit}>
           <input
             type="text"
