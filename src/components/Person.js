@@ -7,7 +7,7 @@ class Person extends Component {
   render(){
     return(
       <div className="person-container">
-        <ul>
+        <ul className="person">
           <li>User: {this.props.person.name}</li>
           <li>Age: {this.props.person.age}</li>
           <li>Interest: {this.props.person.interest}</li>
@@ -27,15 +27,15 @@ class Person extends Component {
                   )
                 }) : "" }
           </li>
-          <button onClick={() => {
-            
+          <button className="person-update button" onClick={() => {
+
           }}>Update</button>
           <UpdatePersonForm
             person={this.props.person}
             arrayIndex={this.props.arrayIndex}
             handleUpdate={this.props.handleUpdate}
           />
-          <button onClick={() => {
+          <button className="person-delete button" onClick={() => {
             this.props.handleDelete(this.props.person.id, this.props.arrayIndex, this.props.currentArray)
           }}>Delete</button><br/>
         </ul>

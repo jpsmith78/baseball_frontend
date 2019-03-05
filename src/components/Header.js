@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Header extends Component {
   render(){
     return(
-      <div>
+      <div className="header">
         <h1>Baseball Card Collecting and Trading Forum!</h1>
         <nav>
           <span onClick={() => {this.props.handleView('people')}}>Users</span>

@@ -37,7 +37,7 @@ class UpdatePersonForm extends Component {
 
   render(){
     return(
-      <div>
+      <div className="update-person">
         <form onSubmit={this.handleUpdateSubmit}>
           <input
             type="text"
