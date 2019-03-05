@@ -28,7 +28,7 @@ class Person extends Component {
                 }) : "" }
           </li>
           <button onClick={() => {
-            this.props.handleUpdate(this.props.person, this.props.arrayIndex, this.props.currentArray)
+            
           }}>Update</button>
           <UpdatePersonForm
             person={this.props.person}

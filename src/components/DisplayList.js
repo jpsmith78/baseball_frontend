@@ -28,8 +28,8 @@ class DisplayList extends Component {
                   key={index}
                   card={card}
                   arrayIndex={index}
-                  handleDelete={this.props.handleDelete}
-                  handleUpdate={this.props.handleUpdate}
+                  handleCardDelete={this.props.handleCardDelete}
+                  handleCardUpdate={this.props.handleCardUpdate}
                   currentArray='cards'
                 />
               )

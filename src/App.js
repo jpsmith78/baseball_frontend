@@ -135,8 +135,38 @@ class App extends Component {
       this.fetchCards()
   }
 
+  handleCardUpdate = (card, arrayIndex, currentArray) => {
+    console.log(arrayIndex);
+    fetch('https://baseballbackend.herokuapp.com/card/' + card.id, {
+      body: JSON.stringify(card),
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((updatedCard) => {
+        return updatedCard.json()
+      })
+      .then((jData) => {
+        console.log(jData);
+      })
+  }
+
   handleDelete = (elementId, arrayIndex, currentArray) => {
     fetch('https://baseballbackend.herokuapp.com/person/' + elementId, {
+      method: 'DELETE'
+    })
+      .then((data) => {
+        this.removeFromArray(currentArray, arrayIndex)
+      })
+        .catch((err) => {
+          console.log(err);
+        })
+  }
+
+  handleCardDelete = (elementId, arrayIndex, currentArray) => {
+    fetch('https://baseballbackend.herokuapp.com/card/' + elementId, {
       method: 'DELETE'
     })
       .then((data) => {
@@ -186,7 +216,9 @@ class App extends Component {
           persons={this.state.persons}
           cards={this.state.cards}
           handleDelete={this.handleDelete}
+          handleCardDelete={this.handleCardDelete}
           handleUpdate={this.handlePersonUpdate}
+          handleCardUpdate={this.handleCardUpdate}
         />
         {this.state.currentView === 'people' ?
         <Form
