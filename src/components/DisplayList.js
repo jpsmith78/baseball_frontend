@@ -13,6 +13,10 @@ class DisplayList extends Component {
                 <Person
                   key={index}
                   person={person}
+                  arrayIndex={index}
+                  handleDelete={this.props.handleDelete}
+                  handleUpdate={this.props.handleUpdate}
+                  currentArray='persons'
                 />
               )
             })}
@@ -23,6 +27,10 @@ class DisplayList extends Component {
                 <Card
                   key={index}
                   card={card}
+                  arrayIndex={index}
+                  handleCardDelete={this.props.handleCardDelete}
+                  handleCardUpdate={this.props.handleCardUpdate}
+                  currentArray='cards'
                 />
               )
             })}

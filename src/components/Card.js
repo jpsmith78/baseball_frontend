@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-// import Person from './Person'
+import UpdateCardForm from './UpdateCardForm'
+
 
 class Card extends Component {
   render(){
@@ -10,7 +11,18 @@ class Card extends Component {
         Team: {this.props.card.team}<br/>
         Position: {this.props.card.position}<br/>
         Batting Avg: {this.props.card.batting_avg}<br/>
-        Owner: {this.props.card.owner.name}
+        Owner: {this.props.card.owner.name}<br/>
+        <button onClick={() => {
+
+        }}>Update</button>
+        <UpdateCardForm
+          card={this.props.card}
+          arrayIndex={this.props.arrayIndex}
+          handleCardUpdate={this.props.handleCardUpdate}
+        />
+        <button onClick={() => {
+          this.props.handleCardDelete(this.props.card.id, this.props.arrayIndex, this.props.currentArray)}}>Delete
+        </button><br/><br/>
       </div>
     )
   }
