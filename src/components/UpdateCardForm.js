@@ -11,7 +11,7 @@ class UpdateCardForm extends Component {
       image: '',
       position: '',
       batting_avg: '',
-      owner: ''
+      owner_id: this.props.card.owner.person_id
     }
   }
 
@@ -54,6 +54,7 @@ class UpdateCardForm extends Component {
   }
 
   render(){
+    console.log(this.props);
     return (
       <div className="update-card">
         <form onSubmit={this.handleUpdateCardSubmit}>

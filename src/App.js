@@ -136,7 +136,7 @@ class App extends Component {
   }
 
   handleCardUpdate = (card, arrayIndex, currentArray) => {
-    console.log(arrayIndex);
+    console.log(card);
     fetch('https://bballbackend.herokuapp.com/card/' + card.id, {
       body: JSON.stringify(card),
       method: 'PUT',

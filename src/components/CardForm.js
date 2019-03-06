@@ -10,7 +10,7 @@ class CardForm extends Component {
       image: '',
       position: '',
       batting_avg: '',
-      owner: 0
+      owner_id: 0
     }
   }
 
@@ -46,7 +46,7 @@ class CardForm extends Component {
 
   handleOwnerChange = (event) => {
     this.setState({
-      owner: event.target.value
+      owner_id: event.target.value
     })
   }
 
@@ -105,7 +105,7 @@ class CardForm extends Component {
             type="number"
             placeholder="Owner ID"
             onChange={this.handleOwnerChange}
-            value={this.state.owner}
+            value={this.state.owner_id}
           />
           <input type="submit"/>
         </form>
