@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-
+  font-family: 'Noto Sans SC', sans-serif;
 }
 .header {
   display: flex;
@@ -40,7 +40,7 @@ nav > span {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: baseline;
-  background: green;
+  background: darkgreen;
 }
 .person-container {
   display: inline-flex;
@@ -52,40 +52,62 @@ nav > span {
   height: 500px;
   overflow: auto;
 }
-.person{
+.person {
   padding: 20px;
   overflow: auto;
+  background: #333;
+  color: #ddd;
+  font-weight: bold;
+}
+.person > li > ul {
+  background: #aaa;
+  color: #333;
+
 }
 .card-container {
   display: inline-flex;
+  background: #333;
+  box-shadow: 2px 2px 2px black;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   width: 350px;
   margin: 30px;
-  border: 1px solid white;
-  height: 800px;
+  height: 850px;
 }
 .card {
   text-align: center;
   padding: 10px;
   width: 300px;
-
+  background: #aaa;
+  border: 2px solid gray;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px black;
+}
+.update-card {
+  width: 50%;
+}
+.update-card > form {
+  text-align: center;
 }
 ul {
-  border: 1px solid white;
-  margin: 5px;
+  margin: 20px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px black;
 }
 li {
   font-size: 18px;
+  margin-top: 2px;
   list-style: none;
 }
 img {
   width: 150px;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 .button {
-  padding: 8px;
-  font-size: 14px;
+  padding: 5px 10px;
+  font-size: 16px;
   margin: 10px;
   border: 2px solid white;
   border-radius: 5px;
@@ -93,9 +115,9 @@ img {
   background: red;
   color: white;
 }
-.enter-person {
+.enter-person, .enter-card {
   padding: 40px;
-  background: green;
+  background: darkgreen;
 }
 input {
   margin: 10px;
@@ -110,5 +132,4 @@ input[type="submit"] {
   padding: 5px;
   color: white;
   background: blue;
-
 }

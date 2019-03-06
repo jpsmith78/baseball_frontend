@@ -56,8 +56,8 @@ class UpdatePersonForm extends Component {
             placeholder={this.props.person.interest}
             onChange={this.updateInterestChange}
             value={this.state.interest}
-          />
-          <input type="submit"/>
+          /><br />
+          <input type="submit" value="Update"/>
         </form>
       </div>
     )

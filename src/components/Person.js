@@ -27,9 +27,7 @@ class Person extends Component {
                   )
                 }) : "" }
           </li>
-          <button className="person-update button" onClick={() => {
-
-          }}>Update</button>
+        
           <UpdatePersonForm
             person={this.props.person}
             arrayIndex={this.props.arrayIndex}
