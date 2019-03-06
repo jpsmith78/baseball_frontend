@@ -14,9 +14,7 @@ class Card extends Component {
           <li>Batting Avg: {this.props.card.batting_avg}</li>
           <li>Owner: {this.props.card.owner.name}</li>
         </ul>
-        <button className="card-update button" onClick={() => {
-
-        }}>Update</button>
+        
         <UpdateCardForm
           card={this.props.card}
           arrayIndex={this.props.arrayIndex}
