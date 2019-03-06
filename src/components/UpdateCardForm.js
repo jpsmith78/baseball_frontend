@@ -86,8 +86,8 @@ class UpdateCardForm extends Component {
             placeholder={this.props.card.batting_avg}
             onChange={this.updateBattingAvgChange}
             value={this.state.batting_avg}
-          />
-          <input type="submit"/>
+          /><br />
+          <input type="submit" value="Update"/>
         </form>
       </div>
     )
