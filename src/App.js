@@ -50,13 +50,6 @@ class App extends Component {
   // ==================================================
   // <<<<<<<<SET PERSON FUNCTION>>>>>>>>>>>>>>>>>>
   // ==================================================
-  // sortPersonData = (persons) => {
-  //   let personData = []
-  //   persons.forEach((person) => {
-  //     personData.push(person)
-  //   })
-  //   this.setPersons(personData)
-  // }
 
   setPersons = (person) => {
     this.setState({
@@ -147,7 +140,7 @@ class App extends Component {
   // ==================================================
   // <<<<<<<<FETCH CARD FUNCTION>>>>>>>>>>>>>>>>>>
   // ==================================================
-//fetching card data
+
   fetchCards = () => {
     fetch('https://bballbackend.herokuapp.com/card')
       .then((data) => {
@@ -161,14 +154,9 @@ class App extends Component {
         console.log(err);
       })
   }
-
-  // sortCardsData = (cards) => {
-  //   let cardData = []
-  //   cards.forEach((card) => {
-  //     cardData.push(card)
-  //   })
-  //   this.setCards(cardData)
-  // }
+  // ==================================================
+  // <<<<<<<<SET CARD FUNCTION>>>>>>>>>>>>>>>>>>
+  // ==================================================
 
   setCards = (card) => {
     this.setState({
