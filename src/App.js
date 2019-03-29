@@ -4,6 +4,10 @@ import Form from './components/Form'
 import DisplayList from './components/DisplayList'
 import CardForm from './components/CardForm'
 
+// ==================================================
+// <<<<<<<<<<<<<<<<<CLASS>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// ==================================================
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -14,28 +18,45 @@ class App extends Component {
     }
   }
 
-  //fetching person data
+
+  // ==================================================
+  // <<<<<<<<<<<<<HANDLE VIEW>>>>>>>>>>>>>>>>>>
+  // ==================================================
+  handleView = (view) => {
+    this.setState({
+      currentView: view
+    })
+  }
+
+
+
+  // ==================================================
+  // <<<<<<<<<<<<<PERSON>>>>>>>>>>>>>>>>>>>>>
+  // ==================================================
+  // ==================================================
+  // <<<<<<<<FETCH PERSON FUNCTION>>>>>>>>>>>>>>>>>>
+  // ==================================================
   fetchPersons = () => {
     fetch('https://bballbackend.herokuapp.com/person')
-      .then((data) => {
-        return data.json()
-      })
+      .then((data) => data.json())
       .then((jData) => {
-        console.log(jData);
-        this.sortPersonData(jData)
+        this.setPersons(jData)
       })
       .catch((err) => {
         console.log(err);
       })
   }
 
-  sortPersonData = (persons) => {
-    let personData = []
-    persons.forEach((person) => {
-      personData.push(person)
-    })
-    this.setPersons(personData)
-  }
+  // ==================================================
+  // <<<<<<<<SET PERSON FUNCTION>>>>>>>>>>>>>>>>>>
+  // ==================================================
+  // sortPersonData = (persons) => {
+  //   let personData = []
+  //   persons.forEach((person) => {
+  //     personData.push(person)
+  //   })
+  //   this.setPersons(personData)
+  // }
 
   setPersons = (person) => {
     this.setState({
@@ -43,6 +64,9 @@ class App extends Component {
     })
   }
 
+  // ==================================================
+  // <<<<<<<<CREATE PERSON FUNCTION>>>>>>>>>>>>>>>>>>
+  // ==================================================
   handleCreatePerson = (person) => {
     fetch('https://bballbackend.herokuapp.com/person', {
       body: JSON.stringify(person),
@@ -64,56 +88,20 @@ class App extends Component {
       })
   }
 
-//fetching card data
-  fetchCards = () => {
-    fetch('https://bballbackend.herokuapp.com/card')
-      .then((data) => {
-        return data.json()
-      })
-      .then((jData) => {
-        console.log(jData);
-        this.sortCardsData(jData)
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  }
-
-  sortCardsData = (cards) => {
-    let cardData = []
-    cards.forEach((card) => {
-      cardData.push(card)
-    })
-    this.setCards(cardData)
-  }
-
-  setCards = (card) => {
-    this.setState({
-      cards: card
-    })
-  }
-
-  handleCreateCard = (card) => {
-    fetch('https://bballbackend.herokuapp.com/card', {
-      body: JSON.stringify(card),
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
+  // ==================================================
+  // <<<<<<<<UPDATE ARRAY (PERSON)>>>>>>>>>>>>>>>>>>
+  // ==================================================
+  updateArray = (person, array) => {
+    this.setState((prevState) => {
+      prevState[array].push(person)
+      return {
+        [array]: prevState[array]
       }
     })
-      .then((createdCard) => {
-        return createdCard.json()
-      })
-      .then((jData) => {
-        this.updateArray(jData, 'cards')
-        this.handleView('cards')
-      })
-      .catch((err) => {
-          console.log(err);
-      })
   }
-
+  // ==================================================
+  // <<<<<<<<UPDATE PERSON FUNCTION>>>>>>>>>>>>>>>>>>
+  // ==================================================
   handlePersonUpdate = (person, arrayIndex, currentArray) => {
     console.log(arrayIndex);
 
@@ -129,12 +117,93 @@ class App extends Component {
         return updatedPerson.json()
       })
       .then((jData) => {
-        console.log(jData);
-
+        this.fetchPersons()
       })
-      this.fetchCards()
+      .catch(err => console.log(err))
   }
 
+
+
+  // ==================================================
+  // <<<<<<<<DELETE PERSON FUNCTION>>>>>>>>>>>>>>>>>>
+  // ==================================================
+  handleDelete = (elementId, arrayIndex, currentArray) => {
+    fetch('https://bballbackend.herokuapp.com/person/' + elementId, {
+      method: 'DELETE'
+    })
+      .then((data) => {
+        this.removeFromArray(currentArray, arrayIndex)
+      })
+        .catch((err) => {
+          console.log(err);
+        })
+  }
+
+
+
+  // ==================================================
+  // <<<<<<<<<<<<<CARD>>>>>>>>>>>>>>>>>>>>
+  // ==================================================
+  // ==================================================
+  // <<<<<<<<FETCH CARD FUNCTION>>>>>>>>>>>>>>>>>>
+  // ==================================================
+//fetching card data
+  fetchCards = () => {
+    fetch('https://bballbackend.herokuapp.com/card')
+      .then((data) => {
+        return data.json()
+      })
+      .then((jData) => {
+        console.log(jData);
+        this.setCards(jData)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  // sortCardsData = (cards) => {
+  //   let cardData = []
+  //   cards.forEach((card) => {
+  //     cardData.push(card)
+  //   })
+  //   this.setCards(cardData)
+  // }
+
+  setCards = (card) => {
+    this.setState({
+      cards: card
+    })
+  }
+
+  // ==================================================
+  // <<<<<<<<CREATE CARD FUNCTION>>>>>>>>>>>>>>>>>>
+  // ==================================================
+  handleCreateCard = (card) => {
+    fetch('https://bballbackend.herokuapp.com/card', {
+      body: JSON.stringify(card),
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((createdCard) => {
+        return createdCard.json()
+      })
+      .then((jData) => {
+        this.fetchCards()
+        this.handleView('cards')
+      })
+      .catch((err) => {
+          console.log(err);
+      })
+  }
+
+
+  // ==================================================
+  // <<<<<<<<UPDATE CARD FUNCTION>>>>>>>>>>>>>>>>>>
+  // ==================================================
   handleCardUpdate = (card, arrayIndex, currentArray) => {
     console.log(card);
     fetch('https://bballbackend.herokuapp.com/card/' + card.id, {
@@ -149,22 +218,15 @@ class App extends Component {
         return updatedCard.json()
       })
       .then((jData) => {
-        console.log(jData);
+        this.fetchCards()
+        this.handleView('cards')
       })
   }
 
-  handleDelete = (elementId, arrayIndex, currentArray) => {
-    fetch('https://bballbackend.herokuapp.com/person/' + elementId, {
-      method: 'DELETE'
-    })
-      .then((data) => {
-        this.removeFromArray(currentArray, arrayIndex)
-      })
-        .catch((err) => {
-          console.log(err);
-        })
-  }
 
+  // ==================================================
+  // <<<<<<<<DELETE CARD FUNCTION>>>>>>>>>>>>>>>>>>
+  // ==================================================
   handleCardDelete = (elementId, arrayIndex, currentArray) => {
     fetch('https://bballbackend.herokuapp.com/card/' + elementId, {
       method: 'DELETE'
@@ -177,21 +239,12 @@ class App extends Component {
         })
   }
 
-  handleView = (view) => {
-    this.setState({
-      currentView: view
-    })
-  }
 
-  updateArray = (person, array) => {
-    this.setState((prevState) => {
-      prevState[array].push(person)
-      return {
-        [array]: prevState[array]
-      }
-    })
-  }
 
+
+  // ==================================================
+  // <<<<<<<REMOVE FROM ARRAY (BOTH)>>>>>>>>>>>>>>>>>
+  // ==================================================
   removeFromArray = (array, arrayIndex) => {
     this.setState((prevState) => {
       prevState[array].splice(arrayIndex, 1)
@@ -201,12 +254,18 @@ class App extends Component {
     })
   }
 
+  // ==================================================
+  // <<<<<<<<DID MOUNT>>>>>>>>>>>>>>>>>>
+  // ==================================================
   componentDidMount() {
     this.fetchPersons()
     this.fetchCards()
   }
 
 
+  // ==================================================
+  // <<<<<<<<RENDER>>>>>>>>>>>>>>>>>>
+  // ==================================================
   render() {
     return (
       <div className="main-page">
