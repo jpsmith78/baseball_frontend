@@ -58,12 +58,14 @@ class Form extends Component {
               onChange={this.handleAgeChange}
               value={this.state.age}
             />
-            <input
-              type="text"
-              placeholder="Trader/Collector/Investor"
+            <select
               onChange={this.handleInterestChange}
-              value={this.state.interest}
-            />
+              value={this.state.interest}>
+              <option value="">Select Interest</option>
+              <option value="Collector">Collector</option>
+              <option value="Investor">Investor</option>
+              <option value="Trader">Trader</option>
+            </select>
             <input type="submit"/>
           </form>
       </div>

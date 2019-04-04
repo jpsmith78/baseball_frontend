@@ -11,8 +11,13 @@ class UpdateCardForm extends Component {
       image: '',
       position: '',
       batting_avg: '',
-      owner_id: this.props.card.owner.person_id
+      owner_id: this.props.card.owner.person_id,
+      updateView: 'hide'
     }
+  }
+
+  handleUpdateView = (view)=>{
+    this.setState({updateView: view})
   }
 
   updatePlayerChange = (event) => {
@@ -44,7 +49,7 @@ class UpdateCardForm extends Component {
   }
   updateOwnerChange = (event) => {
     this.setState({
-      owner: event.target.value
+      owner_id: event.target.value
     })
   }
 
@@ -54,9 +59,11 @@ class UpdateCardForm extends Component {
   }
 
   render(){
-    console.log(this.props);
     return (
       <div className="update-card">
+
+        {this.state.updateView === 'update' ?
+
         <form onSubmit={this.handleUpdateCardSubmit}>
           <input
             type="text"
@@ -88,8 +95,18 @@ class UpdateCardForm extends Component {
             onChange={this.updateBattingAvgChange}
             value={this.state.batting_avg}
           /><br />
+          <input
+            type="number"
+            onChange={this.updateOwnerChange}
+            value={this.state.owner_id}
+          />
+
           <input type="submit" value="Update"/>
+          <div className="button" onClick={()=>{this.handleUpdateView('hide')}}>hide</div>
         </form>
+
+        : <div className="openUpdate" onClick={()=>{this.handleUpdateView('update')}}>Update</div>
+        }
       </div>
     )
   }

@@ -12,9 +12,12 @@ class Card extends Component {
           <li>Team: {this.props.card.team}</li>
           <li>Position: {this.props.card.position}</li>
           <li>Batting Avg: {this.props.card.batting_avg}</li>
-          <li>Owner: {this.props.card.owner.name}</li>
+          {this.props.card.owner.name ?
+          <li>Owner:{this.props.card.owner.name}<br/>Owner ID: {this.props.card.owner.person_id}</li>
+          // <li>Owner ID:</li>
+          : <li></li>}
         </ul>
-        
+
         <UpdateCardForm
           card={this.props.card}
           arrayIndex={this.props.arrayIndex}

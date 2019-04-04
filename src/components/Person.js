@@ -8,7 +8,8 @@ class Person extends Component {
     return(
       <div className="person-container">
         <ul className="person">
-          <li>User: {this.props.person.name}</li>
+          <li>User ID:  {this.props.person.id}</li>
+          <li>User Name:  {this.props.person.name}</li>
           <li>Age: {this.props.person.age}</li>
           <li>Interest: {this.props.person.interest}</li>
           <li>Collection:
@@ -27,7 +28,7 @@ class Person extends Component {
                   )
                 }) : "" }
           </li>
-        
+
           <UpdatePersonForm
             person={this.props.person}
             arrayIndex={this.props.arrayIndex}

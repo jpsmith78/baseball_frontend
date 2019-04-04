@@ -124,7 +124,7 @@ input {
   padding: 5px;
   font-size: 14px;
 }
-input[type="submit"] {
+input[type="submit"], .openUpdate {
   border: 2px solid white;
   border-radius: 5px;
   box-shadow: 2px 2px 2px black;

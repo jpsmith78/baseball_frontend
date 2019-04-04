@@ -207,7 +207,11 @@ class App extends Component {
       })
       .then((jData) => {
         this.fetchCards()
+        this.fetchPersons()
         this.handleView('cards')
+      })
+      .catch((err) => {
+          console.log(err);
       })
   }
 
@@ -222,9 +226,9 @@ class App extends Component {
       .then((data) => {
         this.removeFromArray(currentArray, arrayIndex)
       })
-        .catch((err) => {
-          console.log(err);
-        })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
 

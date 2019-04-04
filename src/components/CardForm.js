@@ -101,9 +101,9 @@ class CardForm extends Component {
             onChange={this.handleBattingAvgChange}
             value={this.state.batting_avg}
           />
+          <label>Owner ID </label>
           <input
             type="number"
-            placeholder="Owner ID"
             onChange={this.handleOwnerChange}
             value={this.state.owner_id}
           />

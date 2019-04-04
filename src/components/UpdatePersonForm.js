@@ -51,12 +51,15 @@ class UpdatePersonForm extends Component {
             onChange={this.updateAgeChange}
             value={this.state.age}
           />
-          <input
-            type="text"
-            placeholder={this.props.person.interest}
+          <select
             onChange={this.updateInterestChange}
-            value={this.state.interest}
-          /><br />
+            value={this.state.interest}>
+            <option value="">Select Interest</option>
+            <option value="Collector">Collector</option>
+            <option value="Investor">Investor</option>
+            <option value="Trader">Trader</option>
+          </select>
+          <br />
           <input type="submit" value="Update"/>
         </form>
       </div>
