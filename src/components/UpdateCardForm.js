@@ -100,12 +100,12 @@ class UpdateCardForm extends Component {
             onChange={this.updateOwnerChange}
             value={this.state.owner_id}
           />
-
-          <input type="submit" value="Update"/>
-          <div className="button" onClick={()=>{this.handleUpdateView('hide')}}>hide</div>
+          <br/>
+          <input className="update button" type="submit" value="Update"/>
+          <button className="hide button" onClick={()=>{this.handleUpdateView('hide')}}>hide</button>
         </form>
 
-        : <div className="openUpdate" onClick={()=>{this.handleUpdateView('update')}}>Update</div>
+        : <button className="update button" onClick={()=>{this.handleUpdateView('update')}}>Update</button>
         }
       </div>
     )

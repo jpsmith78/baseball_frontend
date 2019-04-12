@@ -34,7 +34,7 @@ class Person extends Component {
             arrayIndex={this.props.arrayIndex}
             handleUpdate={this.props.handleUpdate}
           />
-          <button className="person-delete button" onClick={() => {
+          <button className="delete button" onClick={() => {
             this.props.handleDelete(this.props.person.id, this.props.arrayIndex, this.props.currentArray)
           }}>Delete</button><br/>
         </ul>
