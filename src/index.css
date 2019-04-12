@@ -1,7 +1,17 @@
+:root {
+  --azure: #0080E2;
+  --islamic-green: #0CBA00;
+  --ku-crimson: #E80013;
+  --usc-gold: #F9CC00;
+  --baby-powder: #FDFFFC;
+  --charcoal: #373F51;
+
+}
+
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Noto Sans SC', sans-serif;
 }
 .header {
   display: flex;
@@ -9,42 +19,49 @@ body {
   align-items: center;
   justify-content: center;
   padding: 4%;
-  background-image: url("https://i.imgur.com/UFBEOwJ.jpg");
+  background-image: url("https://i.imgur.com/X3449Sf.jpg");
   background-size: cover;
   background-position: center;
   margin: 0;
 }
-h1 {
-  margin-bottom: 100px;
-  color: white;
-  font-size: 40px;
-  padding: 10px;
-  background: rgba(0,0,0,.75);
-  border-radius: 10px;
-}
-nav {
-  padding: 20px;
-}
-nav > span {
-  margin: 50px;
-  padding: 10px;
-  border-radius: 8px;
-  border: 2px solid white;
-  box-shadow: 2px 2px 2px black;
-  color: white;
-  font-size: 18px;
-  background: green;
-}
-.display-container {
+.title {
+  width: 50%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: baseline;
-  background: darkgreen;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--charcoal);
+  padding: 20px;
+  border: 2px solid #bbb;
+  border-radius: 5px;
+}
+h1 {
+  color: var(--baby-powder);
+}
+
+nav > button {
+  margin: 10px 50px;
+  color: var(--baby-powder);
+  background: var(--azure);
+  font-size: 16px;
+  box-shadow: 2px 2px 1px #333;
+}
+ul {
+  list-style: none;
+  font-size: 20px;
+}
+.display-container {
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  background: var(--islamic-green);
 }
 .person-container {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: baseline;
   width: 350px;
@@ -53,30 +70,32 @@ nav > span {
   overflow: auto;
 }
 .person {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
   padding: 20px;
-  overflow: auto;
-  background: #333;
+  background: var(--charcoal);
   color: #ddd;
   font-weight: bold;
 }
-.person > li > ul {
-  background: #aaa;
-  color: #333;
-
+.update-person {
+  color: var(--charcoal);
+  font-size: 16px;
 }
 .card-container {
   display: inline-flex;
-  background: #333;
+  background: var(--charcoal);
   box-shadow: 2px 2px 2px black;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   width: 350px;
   margin: 30px;
-  height: 850px;
 }
 .card {
   text-align: center;
+  margin: 20px;
   padding: 10px;
   width: 300px;
   background: #aaa;
@@ -84,52 +103,32 @@ nav > span {
   border-radius: 5px;
   box-shadow: 2px 2px 2px black;
 }
-.update-card {
-  width: 50%;
+img {
+  width: 200px;
 }
 .update-card > form {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-ul {
-  margin: 20px;
-  border-radius: 4px;
-  box-shadow: 2px 2px 2px black;
+form {
+  margin-bottom: 0;
 }
-li {
-  font-size: 18px;
-  margin-top: 2px;
-  list-style: none;
+.delete {
+  background: var(--ku-crimson);
+  color: var(--baby-powder);
 }
-img {
-  width: 150px;
-  border: 2px solid black;
-  border-radius: 5px;
+.hide {
+  background: var(--islamic-green);
+  color: var(--baby-powder);
+  width: 112px;
 }
-.button {
-  padding: 5px 10px;
-  font-size: 16px;
-  margin: 10px;
-  border: 2px solid white;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px black;
-  background: red;
-  color: white;
+input[value=Update], .update{
+  background: var(--azure);
+  color: var(--baby-powder);
 }
-.enter-person, .enter-card {
-  padding: 40px;
-  background: darkgreen;
-}
-input {
-  margin: 10px;
-  padding: 5px;
-  font-size: 14px;
-}
-input[type="submit"], .openUpdate {
-  border: 2px solid white;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px black;
-  font-size: 16px;
-  padding: 5px;
-  color: white;
-  background: blue;
+@media (max-width: 1100px){
+  .title {
+    width: 80%;
+  }
 }

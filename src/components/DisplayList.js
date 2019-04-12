@@ -5,9 +5,9 @@ import Card from './Card'
 class DisplayList extends Component {
   render(){
     return(
-      <div className="display-container">
+      <div>
         {this.props.currentView === 'people' ?
-          <div>
+          <div className="display-container">
             {this.props.persons.map((person, index) => {
               return (
                 <Person
@@ -21,7 +21,7 @@ class DisplayList extends Component {
               )
             })}
           </div> :
-          <div>
+          <div className="display-container">
             {this.props.cards.map((card, index) => {
               return (
                 <Card
