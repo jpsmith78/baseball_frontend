@@ -45,19 +45,21 @@ class Form extends Component {
   render(){
     return(
       <div className="enter-person">
+      <h3>Add A New User</h3>
           <form onSubmit={this.handleSubmit}>
+            <label>User Name</label>
             <input
               type="text"
-              placeholder="New User"
               onChange={this.handleNewNameChange}
               value={this.state.name}
             />
+            <label>User Age</label>
             <input
               type="text"
-              placeholder="Age"
               onChange={this.handleAgeChange}
               value={this.state.age}
             />
+            <label>User Interest</label>
             <select
               onChange={this.handleInterestChange}
               value={this.state.interest}>
@@ -65,7 +67,7 @@ class Form extends Component {
               <option value="Collector">Collector</option>
               <option value="Investor">Investor</option>
               <option value="Trader">Trader</option>
-            </select>
+            </select><br/>
             <input type="submit"/>
           </form>
       </div>

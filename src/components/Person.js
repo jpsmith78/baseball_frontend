@@ -17,9 +17,10 @@ class Person extends Component {
                 this.props.person.collection.map((player, index)=>{
                   return(
                     <ul key={index}>
+                      <hr/>
+                      <li ><img src={player.image} alt={player.player} /></li>
                       <li >{player.player}</li>
                       <li >{player.team}</li>
-                      <li ><img src={player.image} alt={player.player} /></li>
                       <li >{player.position}</li>
                       <li > {player.batting_avg}</li>
 

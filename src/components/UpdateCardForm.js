@@ -65,36 +65,42 @@ class UpdateCardForm extends Component {
         {this.state.updateView === 'update' ?
 
         <form onSubmit={this.handleUpdateCardSubmit}>
+          <label>Update Player Name</label>
           <input
             type="text"
             placeholder={this.props.card.player}
             onChange={this.updatePlayerChange}
             value={this.state.player}
           />
+          <label>Update Player Team</label>
           <input
             type="text"
             placeholder={this.props.card.team}
             onChange={this.updateTeamChange}
             value={this.state.team}
           />
+          <label>Update Player Image</label>
           <input
             type="text"
             placeholder={this.props.card.image}
             onChange={this.updateImageChange}
             value={this.state.image}
           />
+          <label>Update Player Position</label>
           <input
             type="text"
             placeholder={this.props.card.position}
             onChange={this.updatePositionChange}
             value={this.state.position}
           />
+          <label>Update Batting Average</label>
           <input
             type="text"
             placeholder={this.props.card.batting_avg}
             onChange={this.updateBattingAvgChange}
             value={this.state.batting_avg}
-          /><br />
+          />
+          <label>Update Owner ID</label>
           <input
             type="number"
             onChange={this.updateOwnerChange}

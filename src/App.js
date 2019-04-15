@@ -13,6 +13,7 @@ class App extends Component {
     super(props)
     this.state = {
       currentView: 'people',
+      updateView: 'hide',
       persons: [],
       cards: []
     }

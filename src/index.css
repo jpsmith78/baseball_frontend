@@ -23,6 +23,7 @@ body {
   background-size: cover;
   background-position: center;
   margin: 0;
+  border-bottom: 2px solid #bbb;
 }
 .title {
   width: 50%;
@@ -47,6 +48,14 @@ nav > button {
   font-size: 16px;
   box-shadow: 2px 2px 1px #333;
 }
+.enter-person, .enter-card {
+  background: var(--charcoal);
+  display: flex;
+  flex-direction: row;
+}
+label {
+  color: var(--baby-powder);
+}
 ul {
   list-style: none;
   font-size: 20px;
@@ -68,6 +77,8 @@ ul {
   margin: 30px;
   height: 500px;
   overflow: auto;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px black;
 }
 .person {
   display: flex;
@@ -92,6 +103,7 @@ ul {
   align-items: center;
   width: 350px;
   margin: 30px;
+  border-radius: 4px;
 }
 .card {
   text-align: center;
@@ -105,6 +117,31 @@ ul {
 }
 img {
   width: 200px;
+}
+h3 {
+  color: var(--baby-powder);
+  width: 100%;
+  text-align: center;
+}
+.enter-card, .enter-person {
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: baseline;
+  border-top: 2px solid #bbb;
+}
+.enter-card > form, .enter-person > form {
+  width: 100%;
+  text-align: center;
+
+}
+.enter-card > form > input[type="submit"], .enter-person > form > input[type="submit"]{
+  background: var(--azure);
+  color: var(--baby-powder);
+}
+.enter-card > form > input{
+  display: inline;
 }
 .update-card > form {
   display: flex;

@@ -10,8 +10,13 @@ class CardForm extends Component {
       image: '',
       position: '',
       batting_avg: '',
+      formView: 'hide',
       owner_id: 0
     }
+  }
+
+  handleFormView = (view)=>{
+    this.setState({formView: view})
   }
 
   handlePlayerChange = (event) => {
@@ -70,43 +75,45 @@ class CardForm extends Component {
   render(){
     return(
       <div className="enter-card">
+        <h3>Add A New Card</h3>
         <form onSubmit={this.handleCardSubmit}>
+          <label>Player</label>
           <input
             type="text"
-            placeholder="Player"
             onChange={this.handlePlayerChange}
             value={this.state.player}
           />
+          <label>Team</label>
           <input
             type="text"
-            placeholder="Team"
             onChange={this.handleTeamChange}
             value={this.state.team}
           />
+          <label>Image</label>
           <input
             type="text"
-            placeholder="Image"
             onChange={this.handleImageChange}
             value={this.state.image}
           />
+          <label>Position</label>
           <input
             type="text"
-            placeholder="Position"
             onChange={this.handlePositionChange}
             value={this.state.position}
           />
+          <label>Batting Average</label>
           <input
             type="text"
-            placeholder="Batting Average"
             onChange={this.handleBattingAvgChange}
             value={this.state.batting_avg}
           />
-          <label>Owner ID </label>
+          <label>Owner ID</label>
           <input
             type="number"
             onChange={this.handleOwnerChange}
             value={this.state.owner_id}
           />
+          <br/>
           <input type="submit"/>
         </form>
       </div>
